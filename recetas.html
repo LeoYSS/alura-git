@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetat</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Recetas !</h1>
+    <hr>
+    <span>Aqui se agrega tu ingrediente</span>
+    <button>Listo!</button>
+    
+<script>
+    //  El problema es que podemos agregar ingredientes repetidos a una lista de recetas. Cambia el código para que no se puedan agregar los ingredientes repetidos.
+    var ingredientes = [];
+    
+     // resolucion del proyecto
+     function recetasNuevas(){
+
+         var cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
+         var contador = 1;
+         
+        while( contador <= cantidad) {
+            var ingrediente = prompt("Informe el ingrediente " + contador);
+            var existe = false;
+            for(var posicion = 0; posicion <= ingredientes.length; posicion++){
+                if(ingredientes[posicion] == ingrediente){
+                    existe = true;
+                    alert("Ingrediente repetido " + ingrediente);
+                    break;
+                }
+            };
+    
+            if ( existe == false ){
+                ingredientes.push(ingrediente);
+                contador++;
+            };
+        }
+        
+        console.log(ingredientes);
+     };
+     
+     var button = document.querySelector("button");
+     button.onclick = recetasNuevas; 
+</script>
+</body>
+</html>
